@@ -1,4 +1,15 @@
 const User = require('./User')
+const Post = require('./Post')
+
+//associations
+
+User.hasMany(Post, {
+    foreignKey: 'user_id',
+})
+
+Post.belongsTo(User, {
+    foreignKey: 'user_id',
+})
 
 
 
@@ -7,7 +18,4 @@ const User = require('./User')
 
 
 
-
-
-
-module.exports = { User }
+module.exports = { User, Post }
