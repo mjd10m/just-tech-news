@@ -32,12 +32,12 @@ router.post('/', withAuth, (req, res) => {
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
-          id: req.params.id
+          post_id: req.params.id
         }
       })
         .then(dbPostData => {
           if (!dbPostData) {
-            res.status(404).json({ message: 'No comment found with this id' });
+            res.status(404).json({ message: 'No post found with this id' });
             return;
           }
           res.json(dbPostData);
